@@ -26,28 +26,32 @@ namespace ToyRobot.Tests
         }
         
         
-        [Fact]
-        public void ShouldNotAcceptCoordinateOutOfTable()
+        [InlineData(0, 0, true)]
+        [InlineData(4, 4, true)]
+        [InlineData(0, 4, true)]
+        [InlineData(4, 0, true)]
+        [InlineData(0, 5, false)]
+        [InlineData(5, 0, false)]
+        [InlineData(5, 5, false)]
+        [InlineData(-1, 1, false)]
+        [InlineData(1, -1, false)]
+        [Theory]
+        public void ShouldNotAcceptCoordinateOutOfTable(int x, int y, bool isValid)
         {
             var table = new Table(5, 5);
             var robot = new Robot(table);
 
-            robot.PlaceAt(new Coordinate(0, 5), Direction.North);
-            
-            Assert.Equal(Coordinate.Invalid, robot.Coordinate);
-        }
-               
-        [Fact]
-        public void ShouldNotAcceptMinusCoordinate()
-        {
-            var table = new Table(5, 5);
-            var robot = new Robot(table);
+            robot.PlaceAt(new Coordinate(x, y), Direction.North);
 
-            robot.PlaceAt(new Coordinate(0, -1), Direction.North);
-            
-            Assert.Equal(Coordinate.Invalid, robot.Coordinate);
+            if (isValid)
+            {
+                Assert.Equal(new Coordinate(x, y), robot.Coordinate);
+            }
+            else
+            {
+                Assert.Equal(Coordinate.Invalid, robot.Coordinate);
+            }
         }
-        
         
 
     }
