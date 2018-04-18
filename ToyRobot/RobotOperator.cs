@@ -14,5 +14,16 @@
         {
             _robot.PlaceAt(new Coordinate(command.X, command.Y), command.Direction);
         }
+        
+        
+        public string HandleCommand(ReportCommand command)
+        {
+            if (_robot.Coordinate.Equals(Coordinate.Invalid) || _robot.Direction == Direction.Invalid)
+            {
+                return string.Empty;
+            }
+            
+            return $"{_robot.Coordinate.X},{_robot.Coordinate.Y},{_robot.Direction}";
+        }
     }
 }

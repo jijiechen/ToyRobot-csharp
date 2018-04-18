@@ -21,5 +21,31 @@ namespace ToyRobot.Tests
             Assert.Equal(new Coordinate(1, 2), robot.Coordinate);
             Assert.Equal(Direction.North, robot.Direction);
         }
+        
+        [Fact]
+        public void ShouldHandleReportCommand()
+        {
+            var command = new ReportCommand();
+
+            var robot = new Robot();
+            robot.PlaceAt(new Coordinate(1, 2), Direction.North);
+            var robotOperator = new RobotOperator(robot);
+            var result = robotOperator.HandleCommand(command);
+            
+            Assert.Equal("1,2,North", result);
+        }
+        
+        
+        [Fact]
+        public void ShouldHandleReportAndOutputNothingForInvalidRobots()
+        {
+            var command = new ReportCommand();
+
+            var robot = new Robot();
+            var robotOperator = new RobotOperator(robot);
+            var result = robotOperator.HandleCommand(command);
+            
+            Assert.Equal(string.Empty, result);
+        }
     }
 }
