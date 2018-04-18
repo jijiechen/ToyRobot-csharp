@@ -25,6 +25,17 @@ namespace ToyRobot.Tests
             Assert.Equal(Direction.North, robot.Direction);
         }
         
+        [Fact]
+        public void ShouldNotAcceptCoordinateOutOfTable()
+        {
+            var table = new Table(5, 5);
+            var robot = new Robot(table);
+
+            robot.PlaceAt(new Coordinate(0, 5), Direction.North);
+            
+            Assert.Equal(Coordinate.Invalid, robot.Coordinate);
+        }
+        
         
 
     }
