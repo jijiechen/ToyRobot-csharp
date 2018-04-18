@@ -25,6 +25,7 @@ namespace ToyRobot.Tests
             Assert.Equal(Direction.North, robot.Direction);
         }
         
+        
         [Fact]
         public void ShouldNotAcceptCoordinateOutOfTable()
         {
@@ -32,6 +33,17 @@ namespace ToyRobot.Tests
             var robot = new Robot(table);
 
             robot.PlaceAt(new Coordinate(0, 5), Direction.North);
+            
+            Assert.Equal(Coordinate.Invalid, robot.Coordinate);
+        }
+               
+        [Fact]
+        public void ShouldNotAcceptMinusCoordinate()
+        {
+            var table = new Table(5, 5);
+            var robot = new Robot(table);
+
+            robot.PlaceAt(new Coordinate(0, -1), Direction.North);
             
             Assert.Equal(Coordinate.Invalid, robot.Coordinate);
         }

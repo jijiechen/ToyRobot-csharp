@@ -18,7 +18,9 @@ namespace ToyRobot
 
         public void PlaceAt(Coordinate coordinate, Direction direction)
         {
-            if (coordinate.X + 1 > _table.Width || coordinate.Y + 1 > _table.Height)
+            if (coordinate.X < 0 || coordinate.Y < 0
+                || coordinate.X >= _table.Width 
+                || coordinate.Y >= _table.Height)
             {
                 return;
             }
