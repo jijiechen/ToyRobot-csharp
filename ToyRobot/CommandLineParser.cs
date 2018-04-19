@@ -14,7 +14,8 @@ namespace ToyRobot
             PlaceCommand.Parse,
             ReportCommand.Parse,
             MoveCommand.Parse,
-            LeftCommand.Parse
+            LeftCommand.Parse,
+            RightCommand.Parse
         };
 
         public static ICommand Parse(string commandLine)
