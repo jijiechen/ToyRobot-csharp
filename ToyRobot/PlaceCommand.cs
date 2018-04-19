@@ -3,7 +3,7 @@ using System.Text.RegularExpressions;
 
 namespace ToyRobot
 {
-    public class PlaceCommand
+    public class PlaceCommand : ICommand
     {
         public int X { get; set; }
         public int Y { get; set; }
