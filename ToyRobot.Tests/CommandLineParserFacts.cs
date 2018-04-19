@@ -21,6 +21,15 @@ namespace ToyRobot.Tests
             Assert.IsType<ReportCommand>(parsedCommand);
         }
         
+        
+        [Fact]
+        public void ShouldParseMoveCommand()
+        {
+            var parsedCommand = CommandLineParser.Parse("MOVE");
+            
+            Assert.IsType<MoveCommand>(parsedCommand);
+        }
+        
         [Fact]
         public void ShouldNotParseNonExistingCommand()
         {
