@@ -16,13 +16,16 @@ namespace ToyRobot.Commands
 
         public string Execute(Robot robot)
         {
+            if (robot.IsInvalid())
+            {
+                return null;
+            }
+            
             var x = robot.Coordinate.X;
             var y = robot.Coordinate.Y;
             
             switch (robot.Direction)
             {
-                case Direction.Invalid:
-                    break;
                 case Direction.North:
                     y = y + 1;
                     break;

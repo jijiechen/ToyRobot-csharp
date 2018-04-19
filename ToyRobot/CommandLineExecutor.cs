@@ -13,13 +13,11 @@ namespace ToyRobot
             while(null != (line = ioIn.ReadLine()))
             {
                 var command = CommandLineParser.Parse(line);
-                if (command != null)
+                var executeResult = command?.Execute(rebot);
+                
+                if (!string.IsNullOrEmpty(executeResult))
                 {
-                    var executeResult = command.Execute(rebot);
-                    if (!string.IsNullOrEmpty(executeResult))
-                    {
-                        ioOut.WriteLine(executeResult);
-                    }
+                    ioOut.WriteLine(executeResult);
                 }
             }
             

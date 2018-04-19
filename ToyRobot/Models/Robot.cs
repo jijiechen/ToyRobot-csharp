@@ -14,6 +14,12 @@
         public Coordinate Coordinate { get; private set; } = Coordinate.Invalid;
         public Direction Direction { get; private set; } = Direction.Invalid;
 
+        public bool IsInvalid()
+        {
+            return Direction == Direction.Invalid || Coordinate.Equals(Coordinate.Invalid);
+        }
+        
+        
         public void PlaceAt(Coordinate coordinate, Direction direction)
         {
             if (coordinate.X < 0 || coordinate.Y < 0

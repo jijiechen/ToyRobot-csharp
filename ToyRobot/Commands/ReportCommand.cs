@@ -14,7 +14,7 @@ namespace ToyRobot.Commands
 
         public string Execute(Robot robot)
         {
-            if (robot.Coordinate.Equals(Coordinate.Invalid) || robot.Direction == Direction.Invalid)
+            if (robot.IsInvalid())
             {
                 return null;
             }
