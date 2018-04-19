@@ -25,6 +25,12 @@ namespace ToyRobot
             {
                 return parsed;
             }
+            
+            parsed = LeftCommand.Parse(commandLine);
+            if (parsed != null)
+            {
+                return parsed;
+            }
 
             return null;
         }

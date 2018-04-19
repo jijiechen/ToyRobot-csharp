@@ -36,7 +36,7 @@ namespace ToyRobot.Tests.Commands
             var robot = new Robot();
             var result = command.Execute(robot);
             
-            Assert.Equal(string.Empty, result);
+            Assert.Null(result);
         }
     }
 }

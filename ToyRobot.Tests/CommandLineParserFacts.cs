@@ -30,6 +30,15 @@ namespace ToyRobot.Tests
             Assert.IsType<MoveCommand>(parsedCommand);
         }
         
+        
+        [Fact]
+        public void ShouldParseLeftCommand()
+        {
+            var parsedCommand = CommandLineParser.Parse("LEFT");
+            
+            Assert.IsType<LeftCommand>(parsedCommand);
+        }
+        
         [Fact]
         public void ShouldNotParseNonExistingCommand()
         {
