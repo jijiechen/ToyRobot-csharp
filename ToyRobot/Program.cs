@@ -6,7 +6,7 @@ namespace ToyRobot
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            CommandLineExecutor.Execute(Console.In, Console.Out);
         }
     }
 }
