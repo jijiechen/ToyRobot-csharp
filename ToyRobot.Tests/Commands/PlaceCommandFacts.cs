@@ -1,6 +1,8 @@
-﻿using Xunit;
+﻿using ToyRobot.Commands;
+using ToyRobot.Models;
+using Xunit;
 
-namespace ToyRobot.Tests
+namespace ToyRobot.Tests.Commands
 {
     public class PlaceCommandFacts
     {

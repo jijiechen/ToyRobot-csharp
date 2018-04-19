@@ -1,3 +1,4 @@
+using ToyRobot.Models;
 using Xunit;
 
 namespace ToyRobot.Tests

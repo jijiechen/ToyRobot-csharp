@@ -1,7 +1,8 @@
 ﻿using System;
 using System.Text.RegularExpressions;
+using ToyRobot.Models;
 
-namespace ToyRobot
+namespace ToyRobot.Commands
 {
     public class PlaceCommand : ICommand
     {

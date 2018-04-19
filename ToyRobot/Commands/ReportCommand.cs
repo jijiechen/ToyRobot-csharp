@@ -1,4 +1,6 @@
-﻿namespace ToyRobot
+﻿using ToyRobot.Models;
+
+namespace ToyRobot.Commands
 {
     public class ReportCommand : ICommand
     {

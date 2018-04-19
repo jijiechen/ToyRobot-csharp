@@ -1,5 +1,7 @@
 ﻿
 
+using ToyRobot.Commands;
+
 namespace ToyRobot
 {
     public class CommandLineParser

@@ -1,4 +1,5 @@
-﻿using Xunit;
+﻿using ToyRobot.Commands;
+using Xunit;
 
 namespace ToyRobot.Tests
 {

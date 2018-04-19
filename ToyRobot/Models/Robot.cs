@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace ToyRobot
+﻿namespace ToyRobot.Models
 {
     public class Robot
     {
