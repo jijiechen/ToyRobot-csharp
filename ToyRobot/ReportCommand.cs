@@ -1,10 +1,13 @@
 ﻿namespace ToyRobot
 {
-    public class ReportCommand
+    public class ReportCommand : ICommand
     {
         public static ReportCommand Parse(string input)
         {
-            return new ReportCommand();
+            if(input == "REPORT")
+                return new ReportCommand();
+
+            return null;
         }
     }
 }

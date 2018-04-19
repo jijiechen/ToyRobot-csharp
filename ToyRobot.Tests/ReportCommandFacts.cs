@@ -7,7 +7,7 @@ namespace ToyRobot.Tests
         [Fact]
         public void ShouldParseReportCommand()
         {
-            var command = ReportCommand.Parse("");
+            var command = ReportCommand.Parse("REPORT");
             
             Assert.NotNull(command);   
         }

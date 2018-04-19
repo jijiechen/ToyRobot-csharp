@@ -11,6 +11,13 @@ namespace ToyRobot
 
         public static PlaceCommand Parse(string input)
         {
+            var prefix = "PLACE ";
+            if (!input.StartsWith(prefix))
+            {
+                return null;
+            }
+
+            input = input.Substring(prefix.Length);
             var pattern = new Regex(@"(?<x>\d),(?<y>\d),(?<direction>NORTH|SOUTH|EAST|WEST)", RegexOptions.Compiled);
             var match = pattern.Match(input);
             if (!match.Success)
