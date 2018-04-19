@@ -54,6 +54,23 @@ namespace ToyRobot.Tests
         }
         
         [Fact]
+        public void ShouldIgnoreInvalidCommands()
+        {
+            var commandLine = String.Join(Environment.NewLine,
+                "PLACE 1,2,NORTH",
+                "MOVEOUT",
+                "REPORT");
+            
+            var input = new StringReader(commandLine);
+            var outputContent = new StringBuilder();
+            var output = new StringWriter(outputContent);
+
+            CommandLineExecutor.Execute(input, output);
+            
+            Assert.Equal("1,2,NORTH" + Environment.NewLine, outputContent.ToString());
+        }
+        
+        [Fact]
         public void ShouldExecuteMoreLinesBySpecifiedInputAndOutput()
         {
             var commandLine = String.Join(Environment.NewLine,
@@ -63,6 +80,8 @@ namespace ToyRobot.Tests
                 "LEFT",
                 "REPORT",
                 "MOVE",
+                "REPORT",
+                "RIGHT",
                 "REPORT");
             
             var input = new StringReader(commandLine);
@@ -77,7 +96,8 @@ namespace ToyRobot.Tests
             {
                 "2,2,NORTH",
                 "2,3,WEST",
-                "1,3,WEST"
+                "1,3,WEST",
+                "1,3,NORTH"
             };
             var expectedOutput = String.Join(Environment.NewLine, outputs) + Environment.NewLine;
             Assert.Equal(expectedOutput, outputContent.ToString());

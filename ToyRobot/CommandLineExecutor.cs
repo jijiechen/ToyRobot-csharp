@@ -18,6 +18,7 @@ namespace ToyRobot
                 if (!string.IsNullOrEmpty(executeResult))
                 {
                     ioOut.WriteLine(executeResult);
+                    ioOut.Flush();
                 }
             }
             
