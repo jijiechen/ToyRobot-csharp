@@ -16,7 +16,29 @@ namespace ToyRobot.Commands
 
         public string Execute(Robot robot)
         {
-            throw new System.NotImplementedException();
+            var x = robot.Coordinate.X;
+            var y = robot.Coordinate.Y;
+            
+            switch (robot.Direction)
+            {
+                case Direction.Invalid:
+                    break;
+                case Direction.North:
+                    y = y + 1;
+                    break;
+                case Direction.South:
+                    y = y - 1;
+                    break;
+                case Direction.East:
+                    x = x + 1;
+                    break;
+                case Direction.West:
+                    x = x - 1;
+                    break;
+            }
+            
+            robot.PlaceAt(new Coordinate(x, y), robot.Direction);
+            return null;
         }
     }
 }
