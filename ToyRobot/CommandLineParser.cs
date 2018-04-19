@@ -1,38 +1,27 @@
 ﻿
 
+using System;
+using System.Collections.Generic;
+using System.Linq;
 using ToyRobot.Commands;
 
 namespace ToyRobot
 {
     public class CommandLineParser
     {
+        static IEnumerable<Func<string, ICommand>> commandParsers = new List<Func<string, ICommand>>
+        {
+            PlaceCommand.Parse,
+            ReportCommand.Parse,
+            MoveCommand.Parse,
+            LeftCommand.Parse
+        };
+
         public static ICommand Parse(string commandLine)
         {
-            ICommand parsed = PlaceCommand.Parse(commandLine);
-            if (parsed != null)
-            {
-                return parsed;
-            }
-
-            parsed = ReportCommand.Parse(commandLine);
-            if (parsed != null)
-            {
-                return parsed;
-            }
-            
-            parsed = MoveCommand.Parse(commandLine);
-            if (parsed != null)
-            {
-                return parsed;
-            }
-            
-            parsed = LeftCommand.Parse(commandLine);
-            if (parsed != null)
-            {
-                return parsed;
-            }
-
-            return null;
+            return commandParsers
+                .Select(parser => parser(commandLine))
+                .FirstOrDefault(command => command != null);
         }
     }
 }

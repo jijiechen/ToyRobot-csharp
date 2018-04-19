@@ -16,7 +16,21 @@ namespace ToyRobot.Commands
 
         public string Execute(Robot robot)
         {
-            throw new System.NotImplementedException();
+            if (robot.Direction == Direction.Invalid)
+            {
+                return null;
+            }
+            
+            int directionValue = (int) robot.Direction;
+            directionValue += 90;
+            if (directionValue >= 360)
+            {
+                directionValue = 0;
+            }
+            
+            
+            robot.PlaceAt(robot.Coordinate, (Direction)directionValue);
+            return null;
         }
     }
 }
