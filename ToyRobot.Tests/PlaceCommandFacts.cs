@@ -18,5 +18,23 @@ namespace ToyRobot.Tests
             Assert.Equal(expectedY, command.Y);
             Assert.Equal(expecteDirection, command.Direction);   
         }
+        
+        
+        [Fact]
+        public void ShouldHandlePlaceCommand()
+        {
+            var command = new PlaceCommand()
+            {
+                X = 1,
+                Y = 2,
+                Direction = Direction.North
+            };
+            var robot = new Robot();
+            
+            command.Execute(robot);
+            
+            Assert.Equal(new Coordinate(1, 2), robot.Coordinate);
+            Assert.Equal(Direction.North, robot.Direction);
+        }
     }
 }

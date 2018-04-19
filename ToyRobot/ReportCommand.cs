@@ -9,5 +9,15 @@
 
             return null;
         }
+
+        public string Execute(Robot robot)
+        {
+            if (robot.Coordinate.Equals(Coordinate.Invalid) || robot.Direction == Direction.Invalid)
+            {
+                return null;
+            }
+            
+            return $"{robot.Coordinate.X},{robot.Coordinate.Y},{robot.Direction}".ToUpper();
+        }
     }
 }

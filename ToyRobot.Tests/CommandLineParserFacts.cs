@@ -21,11 +21,13 @@ namespace ToyRobot.Tests
         }
         
         [Fact]
-        public void ShouldNOTParseNonExistingCommand()
+        public void ShouldNotParseNonExistingCommand()
         {
             var parsedCommand = CommandLineParser.Parse("STOP");
             
             Assert.Null(parsedCommand);
         }
+       
+        
     }
 }

@@ -34,5 +34,12 @@ namespace ToyRobot
                     ignoreCase: true)
             };
         }
+
+        public string Execute(Robot robot)
+        {
+            robot.PlaceAt(new Coordinate(this.X, this.Y), this.Direction);
+            return null;
+        }
+        
     }
 }
